@@ -2,9 +2,9 @@
 % arara: pdflatex
 % arara: clean: { files: [ moab.aux, moab.dvi, moab.log ] }
 % arara: clean: { files: [ moab.out, moab.out.ps, moab.toc ] }
-\documentclass[12pt,a4paper,twoside]{article} % scrartcl
-	\usepackage{fancyhdr}
-	\pagestyle{fancy}
+\documentclass[11pt]{scrartcl} % scrartcl
+	\usepackage{scrpage2}
+	\pagestyle{scrheadings}
 	\usepackage[english]{babel}
 	\usepackage{times}
 	\usepackage[hidelinks]{hyperref}
@@ -17,6 +17,7 @@
 
 
 \title{Memoirs of a Bulletin}
+\subtitle{The Long Road to Easy Church Bulletin Typesetting}
 \author{Caleb Maclennan}
 
 \maketitle
@@ -29,7 +30,7 @@ While the resulting system is painless, discovering these techniques and applyin
 
 \thispagestyle{empty}
 
-\section*{Author's Introduction}
+\section*{Prologue}
 
 For all his immense love of books, the pastor I work with doesn't really understand what properties tranform text into effetive communication. His version of 'typsetting' is to underline everything, then bold a few things that got lost in the lines.\footnote{To his credit he refrains from the five-fonts-on-one-page routine, but I have seen five sizes.} We don't have a church secretary. That leaves me---a programmer not a designer---typesetting most of what we produce as a church. While this is less than ideal, I found there are tools that make the job easier.
 
@@ -141,15 +142,27 @@ You generate finished documents (usually in PDF format).
 
 \subsubsection{The easy way with pdf}
 
-\section{Advanced wizardry}
+\section{Where do I put it?}
 
-\subsection{Version control systems}
+Whether alone or not, managing files that collect over time...
+
+\subsection{The hard way(s)}
+
+\subsection{The right way: version control}
+
+\subsubsection{VCS Systems}
+
+Distributed vs dumb.
+
+\subsection{GIT magic}
 
 In which the use of \texttt{git} is explained in relation to Bulletin management.
 
 \begin{verbatim}
 # git init
 \end{verbatim}
+
+\section{Advanced wizardry}
 
 \subsection{A better tomorrow, made possible by macros}
 
@@ -193,12 +206,13 @@ Using the same bulletin source with if-statements to output only relevant conten
 
 Have your cake and eat it too. Or, 'the two bulletin church' rather that the 'two service church'.
 
-\section{Gallery}
-
-Some inspiring examples of well typeset bulletins!
-
 \section{Outtakes}
 
 Because more sections are good right?
+
+\subsection{Gallery}
+
+Some inspiring examples of well typeset bulletins!
+
 
 \end{document}
