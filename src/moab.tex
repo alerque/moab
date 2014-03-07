@@ -2,24 +2,41 @@
 % arara: pdflatex
 % arara: clean: { files: [ moab.aux, moab.dvi, moab.log ] }
 % arara: clean: { files: [ moab.out, moab.out.ps, moab.toc ] }
-\documentclass[11pt]{scrartcl} % scrartcl
-	\usepackage{scrpage2}
-	\pagestyle{scrheadings}
-	\usepackage[english]{babel}
+\documentclass[11pt]{scrartcl}
 	\usepackage{times}
-	\usepackage[hidelinks]{hyperref}
+	\usepackage[automark,headsepline]{scrpage2}
+	\usepackage[english]{babel}
+	\usepackage[hidelinks,pdftex]{hyperref}
 	\usepackage{verbatim}
 	\usepackage{bookmark}
 	\usepackage{titlesec}
 	\newcommand{\sectionbreak}{\clearpage}
+	\usepackage{lastpage}
+	\usepackage{blindtext}
 
-\begin{document}
+
+	\makeatletter
+	\AtBeginDocument{
+		\hypersetup{
+			pdftitle = {\@title},
+			pdfauthor = {\@author}
+		}
+		\pagestyle{scrheadings}
+		\ihead{\MakeUppercase{\@title}}
+		\chead{}
+		\ohead{\leftmark}
+		\cfoot{Page \pagemark{} of \pageref{LastPage}}
+		\ifoot{}
+		\ofoot{}
+	}
+	\makeatother
 
 
 \title{Memoirs of a Bulletin}
 \subtitle{The Long Road to Easy Church Bulletin Typesetting}
 \author{Caleb Maclennan}
 
+\begin{document}
 \maketitle
 
 \begin{abstract}
@@ -27,8 +44,6 @@ As long as today is called "today"\footnote{see Hebrews 3:13}, Sunday will still
 
 While the resulting system is painless, discovering these techniques and applying them to the making of bulletins was not that easy for me. I write this article to document my own findings in hopes that it will make the same journey easier for any that would follow.
 \end{abstract}
-
-\thispagestyle{empty}
 
 \section*{Prologue}
 
@@ -38,9 +53,7 @@ When I started down the road of typsetting our bulletins using \LaTeX, I was una
 
 The system I outline in the following pages will not work for all churches. In fact the contents, layout and usage of their bulletin is a tell: its bulletin will tell you a lot about the church because it reflects in large part their theology of worship. You will find a good deal of mine in the pages and some of the techniques will be more or less useful to you depending on your church's understanding of liturgy. I will make no appology for my own, how you adapt this is your business.
 
-
 \tableofcontents
-
 
 \section{Why not just use Microsoft Word?}
 
