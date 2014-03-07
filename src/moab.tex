@@ -13,6 +13,7 @@
 	\newcommand{\sectionbreak}{\clearpage}
 	\usepackage{lastpage}
 	\usepackage{blindtext}
+	\usepackage[para]{footmisc}
 
 	\makeatletter
 	\AtBeginDocument{
@@ -24,8 +25,8 @@
 		\ihead{\MakeUppercase{\@title}}
 		\chead{}
 		\ohead{\leftmark}
-		\cfoot{Page \pagemark{} of \pageref{LastPage}}
 		\ifoot{}
+		\cfoot{Page \pagemark{} of \pageref{LastPage}}
 		\ofoot{}
 	}
 	% hack to get title macro back after \maketitle clears it
@@ -46,7 +47,7 @@
 \maketitle
 
 \begin{abstract}
-As long as today is called "today"\footnote{see Hebrews 3:13}, Sunday will still come every Sunday \dots but typsetting the bulletin doesn't have to be a chore, nor do the results have to be an eyesore. Even for non-graphically-inclined people like mylself there are ways to make the process of producing well-typeset documents a relatively painless process.
+	As long as today is called "today"\footnote{Hebrews 3:13}, Sunday will still come every Sunday \dots but typsetting the bulletin doesn't have to be a chore\footnote{Leviticus 23:3}, nor do the results have to be an eyesore. Even for non-graphically-inclined people like mylself there are ways to make the process of producing well-typeset documents a relatively painless process.
 
 While the resulting system is painless, discovering these techniques and applying them to the making of bulletins was not that easy for me. I write this article to document my own findings in hopes that it will make the same journey easier for any that would follow.
 \end{abstract}
@@ -119,6 +120,14 @@ There really aren't other viable alternatives in this class. Unless you want to 
 
 \subsection{Installing the tools}
 
+texlive, mactex, <windows>?
+
+texmaxer
+
+lilypond
+
+git
+
 \subsection{Creating your first document}
 
 \begin{verbatim}
@@ -142,6 +151,14 @@ In which I rant against church services being about entertainment.
 
 The bulletin should be useful but not take front stage. It should be readable, communitate it's message and get out of the way.
 
+\subsection{Rounding up the usual suspects}
+
+Think carefully obout what you may need to include, consider \emph{not} including some things you might normally think of as par-for-the-course.
+
+Chuch info
+
+announcements
+
 \subsection{Liturgical styles}
 
 What you include may vary and have unique formatting requrements.
@@ -150,17 +167,41 @@ Responsive readings.
 
 Creeds.
 
-\subsection{Other media}
+\subsection{Coordinating other media types}
 
-\section{A working template}
+Interfacing with content used elsewhere (web, projection, mobile)
 
-\subsection{Compile time considerations}
+\section{All the things you can to}
+
+\subsection{Headers and footers}
+
+Using the sparingly, they will make printing different layouts harder.
+
+fancyhdr vs scrpage2
+
+\subsection{Debuging your layout}
+
+\begin{verbatim}
+	\usepackage[showframe]{geometry}
+\end{verbatim}
+
+\section{Putting it all together}
+
+Bring alll the bits from the previous section
+
+\subsection{A working template}
+
+\verbatiminput{/home/caleb/projects/ipk_belgeler/toplanti/deneme.tex}
+
+\subsection{Beam me up scotty! (compile time considerations)}
 
 Why multipass is necessary.
 
 Arara.
 
 \section{But how do I print it?}
+
+Not by reaching for File » Print from your text editor!
 
 You generate finished documents (usually in PDF format).
 
