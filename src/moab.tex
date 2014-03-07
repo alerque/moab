@@ -14,7 +14,6 @@
 	\usepackage{lastpage}
 	\usepackage{blindtext}
 
-
 	\makeatletter
 	\AtBeginDocument{
 		\hypersetup{
@@ -29,6 +28,12 @@
 		\ifoot{}
 		\ofoot{}
 	}
+	% hack to get title macro back after \maketitle clears it
+	% see http://tex.stackexchange.com/a/164232/5100
+	\let\svmaketitle\maketitle
+	\def\maketitle{\protected@edef\saved@title{\@title}%
+	\svmaketitle%
+	\let\@title\saved@title}%
 	\makeatother
 
 
@@ -37,6 +42,7 @@
 \author{Caleb Maclennan}
 
 \begin{document}
+
 \maketitle
 
 \begin{abstract}

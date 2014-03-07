@@ -1,3 +1,4 @@
+# Stock LaTeX related stuff
 *.acn
 *.acr
 *.alg
@@ -30,3 +31,6 @@
 *.vrb
 *.xdy
 *.tdo
+
+# This project
+pub/*
