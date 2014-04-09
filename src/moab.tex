@@ -47,18 +47,18 @@
 \maketitle
 
 \begin{abstract}
-	As long as today is called "today"\footnote{Hebrews 3:13}, Sunday will still come every Sunday \dots but typsetting the bulletin doesn't have to be a chore\footnote{Leviticus 23:3}, nor do the results have to be an eyesore. Even for non-graphically-inclined people like mylself there are ways to make the process of producing well-typeset documents a relatively painless process.
+	As long as today is called "today"\footnote{Hebrews 3:13}, Sunday will still come every Sunday \dots but typesetting the bulletin doesn't have to be a chore\footnote{Leviticus 23:3}, nor do the results have to be an eyesore. Even for non-graphically-inclined people like myself there are ways to make the process of producing well-typeset documents a relatively painless process.
 
 While the resulting system is painless, discovering these techniques and applying them to the making of bulletins was not that easy for me. I write this article to document my own findings in hopes that it will make the same journey easier for any that would follow.
 \end{abstract}
 
 \section*{Prologue}
 
-For all his immense love of books, the pastor I work with doesn't really understand what properties tranform text into effetive communication. His version of 'typsetting' is to underline everything, then bold a few things that got lost in the lines.\footnote{To his credit he refrains from the five-fonts-on-one-page routine, but I have seen five sizes.} We don't have a church secretary. That leaves me---a programmer not a designer---typesetting most of what we produce as a church. While this is less than ideal, I found there are tools that make the job easier.
+For all his immense love of books, the pastor I work with doesn't really understand what properties transform text into effective communication. His version of 'typesetting' is to underline everything, then bold a few things that got lost in the lines.\footnote{To his credit he refrains from the five-fonts-on-one-page routine, but I have seen five sizes.} We don't have a church secretary. That leaves me---a programmer not a designer---typesetting most of what we produce as a church. While this is less than ideal, I found there are tools that make the job easier.
 
-When I started down the road of typsetting our bulletins using \LaTeX, I was unable to find much helpful documentation out there. \LaTeX itsely is extensively documented, but few of the examples available are applicable to the special needs of bulletins. The system excells at books and articles, but needs some extra love to produce smaller scale work with more formatting that content. I found a few others online doing roughly the same thing, but for fear of this reding like a hall of shame I will refrain from naming most of the names\footnote{One entry went so far as to align footers on each page by inserting fixed-height boxes in the body after the page content that had been carefully measured to push the remainder to roughly the bottom of each page!}. Most samples used booklet formatting that limited you to a pre-defined number of pages.\footnote{Having that special service where your liturgy runs over a page shouldn't destroy your publishing process; nor should you have to remember that pages 1, 2, 3, and 4 of your document are actually 4, 1, 2, and 3 respectively when printed.}
+When I started down the road of typesetting our bulletins using \LaTeX, I was unable to find much helpful documentation out there. \LaTeX itself is extensively documented, but few of the examples available are applicable to the special needs of bulletins. The system excels at books and articles, but needs some extra love to produce smaller scale work with more formatting that content. I found a few others online doing roughly the same thing, but for fear of this reading like a hall of shame I will refrain from naming most of the names\footnote{One entry went so far as to align footers on each page by inserting fixed-height boxes in the body after the page content that had been carefully measured to push the remainder to roughly the bottom of each page!}. Most samples used booklet formatting that limited you to a pre-defined number of pages.\footnote{Having that special service where your liturgy runs over a page shouldn't destroy your publishing process; nor should you have to remember that pages 1, 2, 3, and 4 of your document are actually 4, 1, 2, and 3 respectively when printed.}
 
-The system I outline in the following pages will not work for all churches. In fact the contents, layout and usage of their bulletin is a tell: its bulletin will tell you a lot about the church because it reflects in large part their theology of worship. You will find a good deal of mine in the pages and some of the techniques will be more or less useful to you depending on your church's understanding of liturgy. I will make no appology for my own, how you adapt this is your business.
+The system I outline in the following pages will not work for all churches. In fact the contents, layout and usage of their bulletin is a tell: its bulletin will tell you a lot about the church because it reflects in large part their theology of worship. You will find a good deal of mine in the pages and some of the techniques will be more or less useful to you depending on your church's understanding of liturgy. I will make no apology for my own, how you adapt this is your business.
 
 \tableofcontents
 
@@ -70,7 +70,7 @@ My weapon of choice would be LibreOffice, but this didn't get me much further.
 
 Why alternatives like page layout programs don't quite cut the mustard.
 
-Bad bad typogrophy.
+Bad bad typography.
 
 If you think the example on the left is better that the right, stop reading now and walk away.
 
@@ -78,7 +78,7 @@ If you think the example on the left is better that the right, stop reading now 
 
 Special events shouldn't require starting from scratch with a totally new layout. Memorial, weddings, seminars, etc should be easily adaptable.
 
-You shouldn't be copy-pasting a bunch of repetetive parts or trying to remember what week you used that special thing...
+You shouldn't be copy-pasting a bunch of repetitive parts or trying to remember what week you used that special thing...
 
 \section{The right tools for the job}
 
@@ -86,13 +86,13 @@ Have more than a hammer.
 
 Use real typesetting tools.
 
-Indesign, Quark
+InDesign, Quark
 
 Most are not free, not portable, won't run on Linux, produce output that is not maintainable.
 
 \subsection{Why \LaTeX?}
 
-Simple. Versatle. Accurate. Readable. Consistent.
+Simple. Versatile. Accurate. Readable. Consistent.
 
 Portable output. (booklet, full page, pdf, ebook, web)
 
@@ -114,7 +114,7 @@ Your secretary might actually \emph{never} end up like it. Good semantic documen
 
 \subsection{Other alternatives}
 
-There really aren't other viable alternatives in this class. Unless you want to hand code generating PDF's from code of your own\footnote{This is actually not \emph{that} hard to do and is what I started to do before realizing that \LaTeX was a better tool for the job. The disadvantage is that treaking your layout to match your ever changing content is complex and not something the church secretary is going to pull off. Good typesetting rather that just filling in a few blanks quictly gets too cumbersome and I gave up this route.} Your only other choice is to use a page layout tool. Quark Express used to be the old standby for church use, but InDesign is the popular kid on the block in this space today.
+There really aren't other viable alternatives in this class. Unless you want to hand code generating PDF's from code of your own\footnote{This is actually not \emph{that} hard to do and is what I started to do before realizing that \LaTeX was a better tool for the job. The disadvantage is that tweaking your layout to match your ever changing content is complex and not something the church secretary is going to pull off. Good typesetting rather that just filling in a few blanks quickly gets too cumbersome and I gave up this route.} Your only other choice is to use a page layout tool. Quark Express used to be the old standby for church use, but InDesign is the popular kid on the block in this space today.
 
 \section{Getting started}
 
@@ -149,19 +149,19 @@ Or if you would like to contribute your changes back to this project, start by u
 
 In which I rant against church services being about entertainment.
 
-The bulletin should be useful but not take front stage. It should be readable, communitate it's message and get out of the way.
+The bulletin should be useful but not take front stage. It should be readable, communicate it's message and get out of the way.
 
 \subsection{Rounding up the usual suspects}
 
-Think carefully obout what you may need to include, consider \emph{not} including some things you might normally think of as par-for-the-course.
+Think carefully about what you may need to include, consider \emph{not} including some things you might normally think of as par-for-the-course.
 
-Chuch info
+Church info
 
 announcements
 
 \subsection{Liturgical styles}
 
-What you include may vary and have unique formatting requrements.
+What you include may vary and have unique formatting requirements.
 
 Responsive readings.
 
@@ -179,7 +179,7 @@ Using the sparingly, they will make printing different layouts harder.
 
 fancyhdr vs scrpage2
 
-\subsection{Debuging your layout}
+\subsection{Debugging your layout}
 
 \begin{verbatim}
 	\usepackage[showframe]{geometry}
@@ -193,9 +193,9 @@ Bring alll the bits from the previous section
 
 \verbatiminput{/home/caleb/projects/ipk_belgeler/toplanti/deneme.tex}
 
-\subsection{Beam me up scotty! (compile time considerations)}
+\subsection{Beam me up Scotty! (compile time considerations)}
 
-Why multipass is necessary.
+Why multi-pass is necessary.
 
 Arara.
 
@@ -261,7 +261,7 @@ Every tongue.
 
 \subsubsection{Multi-lingual output}
 
-Examples of parallel typeset content in two langages.
+Examples of parallel typeset content in two languages.
 
 Or make two print editions with different content from the same source.
 
@@ -273,7 +273,7 @@ Using the same bulletin source with if-statements to output only relevant conten
 
 Have your cake and eat it too. Or, 'the two bulletin church' rather that the 'two service church'.
 
-\section{Outtakes}
+\section{Out-takes}
 
 Because more sections are good right?
 
