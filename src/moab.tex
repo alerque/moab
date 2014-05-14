@@ -1,5 +1,5 @@
-% arara: lualatex
-% arara: lualatex
+% arara: lualatex: { shell: yes }
+% arara: lualatex: { shell: yes }
 % arara: clean: { files: [ moab.aux, moab.dvi, moab.log ] }
 % arara: clean: { files: [ moab.out, moab.out.ps, moab.toc ] }
 
@@ -18,6 +18,7 @@
 	\usepackage[T1]{fontenc}
 	\ifluatex\usepackage{luatextra}\fi
 	\usepackage{libertine}
+	\usepackage[xindy]{imakeidx}
 
 	\makeatletter
 
@@ -45,6 +46,8 @@
 	\setmainfont{Linux Libertine O}
 	\setsansfont{Linux Biolinum O}
 	\setmonofont{Linux Libertine Mono O}
+
+	\makeindex[columns=3,intoc]
 
 	\makeatother
 
@@ -110,8 +113,10 @@ is your business.
 
 \section{Why not just use a word processor?}
 
+\index{Word}
 Why Microsoft Word is not the tool for the job.
 
+\index{LibreOffice}
 My weapon of choice would be LibreOffice, but this didn't get me much further.
 
 Why alternatives like page layout programs don't quite cut the mustard.
@@ -136,8 +141,10 @@ Have more than a hammer.
 
 Use real typesetting tools.
 
+\index{InDesign}\index{Quark Express}
 InDesign, Quark
 
+\index{Linux}
 Most are not free, not portable, won't run on Linux, produce output that is not
 maintainable.
 
@@ -281,6 +288,7 @@ Not by reaching for File » Print from your text editor!
 You generate finished documents (usually in PDF format).
 
 \subsection{Booklet printing}
+\index{Booklet}
 
 \subsubsection{The easy way with pdf}
 
@@ -294,9 +302,12 @@ Whether alone or not, managing files that collect over time...
 
 \subsubsection{VCS Systems}
 
+\index{VCS}\index{DVCS}\index{Subversion}
+
 Distributed vs dumb.
 
 \subsection{GIT magic}
+\index{Git}
 
 In which the use of \texttt{git} is explained in relation to Bulletin
 management.
@@ -308,6 +319,7 @@ management.
 \section{Advanced wizardry}
 
 \subsection{A better tomorrow, made possible by macros}
+\index{Macros}
 
 How to write custom commands for oft-repeated tasks.
 
@@ -325,12 +337,15 @@ separately.
 Auto importing verse data from the web.
 
 \subsection{Is that a song I hear?}
+\index{Music}
 
 Why including music in the bulletin can be good for worship.
 
 \subsubsection{Lilypond to the rescue}
+\index{Lilypond}
 
 \subsection{Language considerations}
+\index{Language}
 
 Every tongue.
 
@@ -348,6 +363,7 @@ Using the same bulletin source with if-statements to output only relevant
 content for each service.
 
 \subsection{Multiple print editions}
+\index{Arara}
 
 Have your cake and eat it too. Or, 'the two bulletin church' rather that the
 'two service church'.
@@ -359,6 +375,8 @@ Because more sections are good right?
 \subsection{Gallery}
 
 Some inspiring examples of well typeset bulletins!
+
+\printindex
 
 \end{document}
 % vim: textwidth=80
