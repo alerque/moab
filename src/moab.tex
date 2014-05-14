@@ -2,11 +2,11 @@
 % arara: lualatex
 % arara: clean: { files: [ moab.aux, moab.dvi, moab.log ] }
 % arara: clean: { files: [ moab.out, moab.out.ps, moab.toc ] }
+
 \documentclass[12pt]{scrartcl}
-	\usepackage{times}
 	\usepackage[automark,headsepline]{scrpage2}
 	\usepackage[english]{babel}
-	\usepackage[hidelinks,pdftex]{hyperref}
+	\usepackage[hidelinks]{hyperref}
 	\usepackage{verbatim}
 	\usepackage{bookmark}
 	\usepackage{titlesec}
@@ -14,8 +14,13 @@
 	\usepackage{lastpage}
 	\usepackage{blindtext}
 	\usepackage[para]{footmisc}
+	\usepackage{ifxetex,ifluatex}
+	\usepackage[T1]{fontenc}
+	\ifluatex\usepackage{luatextra}\fi
+	\usepackage{libertine}
 
 	\makeatletter
+
 	\AtBeginDocument{
 		\hypersetup{
 			pdftitle = {\@title},
@@ -35,8 +40,13 @@
 	\def\maketitle{\protected@edef\saved@title{\@title}%
 	\svmaketitle%
 	\let\@title\saved@title}%
-	\makeatother
 
+	\defaultfontfeatures{Ligatures=TeX}
+	\setmainfont{Linux Libertine O}
+	\setsansfont{Linux Biolinum O}
+	\setmonofont{Linux Libertine Mono O}
+
+	\makeatother
 
 \title{Memoirs of a Bulletin}
 \subtitle{The Long Road to Easy Church Bulletin Typesetting}
