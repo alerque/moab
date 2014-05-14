@@ -20,6 +20,10 @@
 	\usepackage[xindy]{imakeidx}
 	\usepackage{verbatim}
 	\usepackage{fancyvrb}
+	\usepackage{varioref}
+	\usepackage{wrapfig}
+	\usepackage{environ}
+	\usepackage{listings}
 
 	\makeatletter
 
@@ -61,10 +65,25 @@
 	}
 	\DefineVerbatimEnvironment{ExampleDocument}{Verbatim}{%
 		numbers=left,
-		frame=leftline,
-		framesep=0.5em,
-		xleftmargin=2em
+		frame=lines,
+		framesep=2ex,
+		xleftmargin=2em,
+		xleftmargin=2em,
+		label={[Begin file]End file}
 	}
+	%\NewEnviron{ExampleFile}[1][]{%
+	\lstnewenvironment{ExampleFile}[1]{%
+		\lstset{%
+			language=tex,
+			numbers=left,
+			numberstyle=\tiny,
+			xleftmargin=2em,
+			xrightmargin=2em,
+			frame=tRBl,
+			caption=filename.tex,
+			label=useless
+		}
+	}{}
 
 	\makeatother
 
@@ -226,6 +245,18 @@ git
 
 \subsection{Creating your first document}
 
+%\begin{wrapfigure}{r}{0.5\textwidth}
+%\caption{Simple 'hello world' tex file, about as minimal as you can get\label{file:helloworld2}}
+
+\begin{ExampleFile}[helloworld.tex]
+\documentclass{letter}
+% test comment
+\begin{document}
+Hello world!
+\end{document}
+\end{ExampleFile}
+
+
 \begin{ExampleDocument}
 \documentclass{letter}
 \begin{document}
@@ -233,10 +264,12 @@ Hello world!
 \end{document}
 \end{ExampleDocument}
 
+See example file ~\vref{file:helloworld.tex}
+
 \subsection{Using this tutorial}
 
 All the sample files and tools mentioned in this tutorial are available at
-Github (\url{https://github.com/alerque/moab}). You may browse and download them
+Github\footnote{\url{https://github.com/alerque/moab}}. You may browse and download them
 individually from there, but there is a better way.
 
 Clone the whole repo...
@@ -245,6 +278,8 @@ Or if you would like to contribute your changes back to this project, start by
 using the "Fork" link at the top right of the Github page.
 
 \section{The essence of a bulletin}
+
+We covered this in example~\vref{file:helloworld.tex} already.
 
 In which I rant against church services being about entertainment.
 
@@ -282,6 +317,15 @@ fancyhdr vs scrpage2
 
 \subsection{Debugging your layout}
 
+\index{Debuging}
+Figuring out \emph{why} something is the way it is in a rendered \LaTeX~document
+is not that easy, but there are a few tricks you can use.
+
+\index{\verb+\usepackage{showframe}+}
+As you begin your initial layout and are trying to understand the basic page
+formatting  rules, it can be helpful to see where the page margigns are. You can
+de this by enabling the \texttt{showframe} package.
+
 \begin{ExampleCode}
 \usepackage{showframe}
 \end{ExampleCode}
@@ -298,6 +342,7 @@ Bring alll the bits from the previous section
 
 Why multi-pass is necessary.
 
+\index{Arara}
 Arara.
 
 \section{But how do I print it?}
@@ -396,6 +441,8 @@ Because more sections are good right?
 Some inspiring examples of well typeset bulletins!
 
 \printindex
+
+\lstlistoflistings
 
 \end{document}
 % vim: textwidth=80
