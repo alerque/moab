@@ -7,7 +7,6 @@
 	\usepackage[automark,headsepline]{scrpage2}
 	\usepackage[english]{babel}
 	\usepackage[hidelinks]{hyperref}
-	\usepackage{verbatim}
 	\usepackage{bookmark}
 	\usepackage{titlesec}
 	\newcommand{\sectionbreak}{\clearpage}
@@ -19,6 +18,8 @@
 	\ifluatex\usepackage{luatextra}\fi
 	\usepackage{libertine}
 	\usepackage[xindy]{imakeidx}
+	\usepackage{verbatim}
+	\usepackage{fancyvrb}
 
 	\makeatletter
 
@@ -35,6 +36,7 @@
 		\cfoot{Page \pagemark{} of \pageref{LastPage}}
 		\ofoot{}
 	}
+
 	% hack to get title macro back after \maketitle clears it
 	% see http://tex.stackexchange.com/a/164232/5100
 	\let\svmaketitle\maketitle
@@ -42,12 +44,27 @@
 	\svmaketitle%
 	\let\@title\saved@title}%
 
+	% Use OTF fonts from the Libertine project across the board
 	\defaultfontfeatures{Ligatures=TeX}
 	\setmainfont{Linux Libertine O}
 	\setsansfont{Linux Biolinum O}
 	\setmonofont{Linux Libertine Mono O}
 
-	\makeindex[columns=3,intoc]
+	% Instanciate our main document index and tell texindy how to format it
+	\makeindex[intoc]
+
+	% Set default values for formatting verbatim examples
+	\DefineVerbatimEnvironment{ExampleCode}{Verbatim}{%
+		frame=leftline,
+		framesep=0.5em,
+		xleftmargin=2em
+	}
+	\DefineVerbatimEnvironment{ExampleDocument}{Verbatim}{%
+		numbers=left,
+		frame=leftline,
+		framesep=0.5em,
+		xleftmargin=2em
+	}
 
 	\makeatother
 
@@ -209,12 +226,12 @@ git
 
 \subsection{Creating your first document}
 
-\begin{verbatim}
-	\documentclass{letter}
-	\begin{document}
-	Hello world!
-	\end{document}
-\end{verbatim}
+\begin{ExampleDocument}
+\documentclass{letter}
+\begin{document}
+Hello world!
+\end{document}
+\end{ExampleDocument}
 
 \subsection{Using this tutorial}
 
@@ -265,9 +282,9 @@ fancyhdr vs scrpage2
 
 \subsection{Debugging your layout}
 
-\begin{verbatim}
-	\usepackage[showframe]{geometry}
-\end{verbatim}
+\begin{ExampleCode}
+\usepackage{showframe}
+\end{ExampleCode}
 
 \section{Putting it all together}
 
