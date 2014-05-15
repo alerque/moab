@@ -11,7 +11,6 @@
 	\usepackage{titlesec}
 	\newcommand{\sectionbreak}{\clearpage}
 	\usepackage{lastpage}
-	\usepackage{blindtext}
 	\usepackage[para]{footmisc}
 	\usepackage{ifxetex,ifluatex}
 	\usepackage[T1]{fontenc}
@@ -19,11 +18,10 @@
 	\usepackage{libertine}
 	\usepackage[xindy]{imakeidx}
 	\usepackage{verbatim}
-	\usepackage{fancyvrb}
 	\usepackage{varioref}
-	\usepackage{wrapfig}
 	\usepackage{environ}
 	\usepackage{listings}
+	\usepackage{wrapfig}
 
 	\makeatletter
 
@@ -58,31 +56,39 @@
 	\makeindex[intoc]
 
 	% Set default values for formatting verbatim examples
-	\DefineVerbatimEnvironment{ExampleCode}{Verbatim}{%
-		frame=leftline,
-		framesep=0.5em,
-		xleftmargin=2em
-	}
-	\DefineVerbatimEnvironment{ExampleDocument}{Verbatim}{%
-		numbers=left,
-		frame=lines,
-		framesep=2ex,
-		xleftmargin=2em,
-		xleftmargin=2em,
-		label={[Begin file]End file}
-	}
+	\lstnewenvironment{ExampleCode}[1][snippet.tex]{%
+		\def\lstlistingname{Example}
+		\lstset{%
+			float=here,
+			language=tex,
+			numbers=left,
+			numberstyle=\tiny,
+			xleftmargin=2em,
+			xrightmargin=2em,
+			frame=l,
+			framesep=1ex,
+			caption=[snippet: #1]~,
+			label=#1
+		}
+		\ttfamily
+	}{}
 	%\NewEnviron{ExampleFile}[1][]{%
-	\lstnewenvironment{ExampleFile}[1]{%
+	\def\lstlistlistingname{List of examples}
+	\lstnewenvironment{ExampleFile}[1][example.tex]{%
+		\def\lstlistingname{Example}
 		\lstset{%
 			language=tex,
 			numbers=left,
 			numberstyle=\tiny,
 			xleftmargin=2em,
 			xrightmargin=2em,
-			frame=tRBl,
-			caption=filename.tex,
-			label=useless
+			frame=shadowbox,
+			framesep=1ex,
+			title=#1,
+			caption=[file: #1]#1,
+			label=#1
 		}
+		\ttfamily
 	}{}
 
 	\makeatother
@@ -245,26 +251,14 @@ git
 
 \subsection{Creating your first document}
 
-%\begin{wrapfigure}{r}{0.5\textwidth}
-%\caption{Simple 'hello world' tex file, about as minimal as you can get\label{file:helloworld2}}
-
 \begin{ExampleFile}[helloworld.tex]
 \documentclass{letter}
-% test comment
 \begin{document}
 Hello world!
 \end{document}
 \end{ExampleFile}
 
-
-\begin{ExampleDocument}
-\documentclass{letter}
-\begin{document}
-Hello world!
-\end{document}
-\end{ExampleDocument}
-
-See example file ~\vref{file:helloworld.tex}
+See example~\vref{helloworld.tex}
 
 \subsection{Using this tutorial}
 
@@ -279,7 +273,7 @@ using the "Fork" link at the top right of the Github page.
 
 \section{The essence of a bulletin}
 
-We covered this in example~\vref{file:helloworld.tex} already.
+We covered this already in example~\vref{helloworld.tex}.
 
 In which I rant against church services being about entertainment.
 
@@ -324,9 +318,14 @@ is not that easy, but there are a few tricks you can use.
 \index{\verb+\usepackage{showframe}+}
 As you begin your initial layout and are trying to understand the basic page
 formatting  rules, it can be helpful to see where the page margigns are. You can
-de this by enabling the \texttt{showframe} package.
+de this by enabling the \texttt{showframe} package as in
+example~\vref{showframe}.
 
-\begin{ExampleCode}
+\begin{wrapfigure}[5]{r}{0.5\textwidth}
+	test
+\end{wrapfigure}
+
+\begin{ExampleCode}[showframe]
 \usepackage{showframe}
 \end{ExampleCode}
 
@@ -442,6 +441,8 @@ Some inspiring examples of well typeset bulletins!
 
 \printindex
 
+\clearpage
+\addcontentsline{toc}{section}{\lstlistlistingname}
 \lstlistoflistings
 
 \end{document}
