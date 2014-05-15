@@ -9,7 +9,6 @@
 	\usepackage[hidelinks]{hyperref}
 	\usepackage{bookmark}
 	\usepackage{titlesec}
-	\newcommand{\sectionbreak}{\clearpage}
 	\usepackage{lastpage}
 	\usepackage{footmisc}
 	\usepackage{ifxetex,ifluatex}
@@ -23,7 +22,6 @@
 	\usepackage{environ}
 	\usepackage{listings}
 	\usepackage{wrapfig}
-	\usepackage{titlesec}
 
 	\makeatletter
 
@@ -95,13 +93,14 @@
 	% Don't let footnotes wrap to following pages
 	\interfootnotelinepenalty=5000
 
-	% Get the bibliography to show in the TOC
-	\usepackage[nottoc]{tocbibind}
+	% Get the bibliography, TOC etc. to show in the TOC
+	\usepackage{tocbibind}
 
 	% Set the bibliography title
 	\renewcaptionname{english}{\refname}{References and Credits}
 
 	% Format section titles to the right more like chapters
+	\newcommand{\sectionbreak}{\clearpage}
 	\titleformat{\section}
 		{\sffamily\Large\bfseries\raggedleft}
 		{\thesection}
@@ -138,6 +137,7 @@ easier for any that would follow.
 \end{abstract}
 
 \section*{Prologue}
+\addcontentsline{toc}{section}{Prologue}
 
 For all his immense love of books, the pastor I work with doesn't really
 understand what properties transform text into effective communication. His
@@ -200,7 +200,7 @@ from existing publishing workflow.
 You shouldn't be copy-pasting a bunch of repetitive parts or trying to remember
 what week you used that special thing...
 
-\section{The right tools for the job}
+\section{What is the right tool for the job?}
 
 Have more than a hammer.
 
@@ -245,7 +245,7 @@ feel like a loss of freedom to some.\footnote{Gratuitous parallel to how freedom
 	in Christ is limiting to our lifestyle but the result being for our
 	good.}
 
-\subsection{Other alternatives}
+\subsection{Are there other alternatives?}
 
 There really aren't other viable alternatives in this class. Unless you want to
 hand code generating PDF's from code of your own\footnote{This is actually not
@@ -258,9 +258,9 @@ hand code generating PDF's from code of your own\footnote{This is actually not
 tool. Quark Express used to be the old standby for church use, but InDesign is
 the popular kid on the block in this space today.
 
-\section{Getting started}
+\section{Where do I start?}
 
-\subsection{Installing the tools}
+\subsection{How do I install the tools?}
 
 texlive, mactex, <windows>?
 
@@ -270,7 +270,7 @@ lilypond
 
 git
 
-\subsection{Creating your first document}
+\subsection{How do I make it do something?}
 
 \begin{ExampleFile}[helloworld.tex]
 \documentclass{letter}
@@ -281,7 +281,7 @@ Hello world!
 
 See example~\vref{helloworld.tex}
 
-\subsection{Using this tutorial}
+\subsection{How do I use the examples in this tutorial?}
 
 All the sample files and tools mentioned in this tutorial are available at
 Github\footnote{\url{https://github.com/alerque/moab}}. You may browse and download them
@@ -292,7 +292,7 @@ Clone the whole repo...
 Or if you would like to contribute your changes back to this project, start by
 using the "Fork" link at the top right of the Github page.
 
-\section{The essence of a bulletin}
+\section{What is the essence of a bulletin?}
 
 We covered this already in example~\vref{helloworld.tex}.
 
@@ -376,7 +376,7 @@ You generate finished documents (usually in PDF format).
 
 \subsubsection{The easy way with pdf}
 
-\section{Where do I put it?}
+\section{How do I organize all this stuff?}
 
 Whether alone or not, managing files that collect over time...
 
