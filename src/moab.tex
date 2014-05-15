@@ -11,7 +11,7 @@
 	\usepackage{titlesec}
 	\newcommand{\sectionbreak}{\clearpage}
 	\usepackage{lastpage}
-	\usepackage[para]{footmisc}
+	\usepackage{footmisc}
 	\usepackage{ifxetex,ifluatex}
 	\usepackage[T1]{fontenc}
 	\ifluatex\usepackage{luatextra}\fi
@@ -23,6 +23,7 @@
 	\usepackage{environ}
 	\usepackage{listings}
 	\usepackage{wrapfig}
+	\usepackage{titlesec}
 
 	\makeatletter
 
@@ -54,9 +55,10 @@
 	\setmonofont{Linux Libertine Mono O}
 
 	% Instanciate our main document index and tell texindy how to format it
-	\makeindex[intoc]
+	\makeindex[intoc,columns=2]
 
 	% Set default values for formatting verbatim examples
+	\def\lstlistlistingname{List of examples}
 	\lstnewenvironment{ExampleCode}[1][snippet.tex]{%
 		\def\lstlistingname{Example}
 		\lstset{%
@@ -73,8 +75,6 @@
 		}
 		\ttfamily
 	}{}
-	%\NewEnviron{ExampleFile}[1][]{%
-	\def\lstlistlistingname{List of examples}
 	\lstnewenvironment{ExampleFile}[1][example.tex]{%
 		\def\lstlistingname{Example}
 		\lstset{%
@@ -92,6 +92,22 @@
 		\ttfamily
 	}{}
 
+	% Don't let footnotes wrap to following pages
+	\interfootnotelinepenalty=5000
+
+	% Get the bibliography to show in the TOC
+	\usepackage[nottoc]{tocbibind}
+
+	% Set the bibliography title
+	\renewcaptionname{english}{\refname}{References and Credits}
+
+	% Format section titles to the right more like chapters
+	\titleformat{\section}
+		{\sffamily\Large\bfseries\raggedleft}
+		{\thesection}
+		{2\wordsep}
+		{}
+
 	\makeatother
 
 \title{Memoirs of a Bulletin}
@@ -99,6 +115,8 @@
 \author{Caleb Maclennan}
 
 \begin{document}
+
+\pagenumbering{roman}
 
 \maketitle
 
@@ -155,6 +173,8 @@ understanding of liturgy. I will make no apology for my own, how you adapt this
 is your business.
 
 \tableofcontents
+
+\pagenumbering{arabic}
 
 \section{Why not just use a word processor?}
 
@@ -302,7 +322,7 @@ Creeds.
 
 Interfacing with content used elsewhere (web, projection, mobile)
 
-\section{All the things you can to}
+\section{All the things you can do}
 
 \subsection{Headers and footers}
 
@@ -336,7 +356,7 @@ Bring alll the bits from the previous section
 
 \subsection{A working template}
 
-\verbatiminput{/home/caleb/projects/ipk_belgeler/toplanti/deneme.tex}
+%\verbatiminput{/home/caleb/projects/ipk_belgeler/toplanti/deneme.tex}
 
 \subsection{Beam me up Scotty! (compile time considerations)}
 
@@ -389,12 +409,19 @@ How to write custom commands for oft-repeated tasks.
 
 \subsection{Using external files}
 
+
 \subsubsection{Sourcing liturgical bits}
 
 Keeping your creeds, responsive readings, etc. in separate files.
 
 Including other content such as sermon outlines that is also published
 separately.
+
+\subsubsection{Backfill}
+
+\index{Backfill}
+
+This is tricky from paul \cite{backfill}
 
 \subsubsection{Pulling data from external API's}
 
@@ -439,6 +466,15 @@ Because more sections are good right?
 \subsection{Gallery}
 
 Some inspiring examples of well typeset bulletins!
+
+\begin{thebibliography}{99}
+	\bibitem{tex.se}
+	Tex Stack Exchange:\\
+	\url{http://tex.stackexchange.com}
+	\bibitem{backfill}
+	Thanks to Paul Stanley and his answer to my question:\\
+	\url{http://tex.stackexchange.com/q/174028/5100}
+\end{thebibliography}
 
 \printindex
 
