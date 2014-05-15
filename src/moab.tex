@@ -22,6 +22,8 @@
 	\usepackage{environ}
 	\usepackage{listings}
 	\usepackage{wrapfig}
+	\usepackage{graphicx}
+	\usepackage{fancybox}
 
 	\makeatletter
 
@@ -106,6 +108,8 @@
 		{\thesection}
 		{2\wordsep}
 		{}
+
+	\setlength{\shadowsize}{2pt}
 
 	\makeatother
 
@@ -466,6 +470,26 @@ Because more sections are good right?
 \subsection{Gallery}
 
 Some inspiring examples of well typeset bulletins!
+
+\begin{figure}[h]
+	\centering
+	\begin{tabular}{@{}c@{\hspace{1em}}c@{}}
+		\shadowbox{\includegraphics[page=1,width=.9\textwidth]{../gallery/ipk.pdf}} \\[1ex]
+		\shadowbox{\includegraphics[page=2,width=.9\textwidth]{../gallery/ipk.pdf}}
+	\end{tabular}
+	\caption{The Protestant Church of Smyrna}
+	\label{ipk}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{tabular}{@{}c@{\hspace{1em}}c@{}}
+		\shadowbox{\includegraphics[page=1,width=.45\textwidth]{../pub/moab.pdf}} &
+		\shadowbox{\includegraphics[page=2,width=.45\textwidth]{../pub/moab.pdf}}
+	\end{tabular}
+	\caption{This document}
+	\label{self}
+\end{figure}
 
 \begin{thebibliography}{99}
 	\bibitem{tex.se}
