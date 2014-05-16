@@ -237,7 +237,14 @@ adaptable to other church's needs.
 
 \pagenumbering{arabic}
 
-\section{Why not just use a word processor?}
+\section{What is broken anyway?}
+
+If you are reading this, chances are either you know me personally and are being
+obliging or you have a problem and you were looking for a solution. Before we
+get too deep into my solution, lets review what problems my solution is designed
+to solve.
+
+\subsection{Wordprocessors are bad}
 
 \index{Word}
 Why Microsoft Word is not the tool for the job.
@@ -247,12 +254,52 @@ My weapon of choice would be LibreOffice, but this didn't get me much further.
 
 Why alternatives like page layout programs don't quite cut the mustard.
 
-Bad bad typography.
+\subsection{Most typography fails its purpose}
 
-If you think the example on the left is better that the right, stop reading now
-and walk away.
+Your content is more that just the way it is typeset, but the way you typeset it
+will make a difference in how it is understood. Some design attributes leave
+certain impresesions whether you intend them to or not\footnote{This is mostly a
+	cultural thing and there are lots of interesting differences in how
+	design is perceievd over time and in different places, but the specific
+	regional issues are far avershadowed by the general principals}.
 
-(bad example figure) (good example figure)
+Good typography should not be noticable for its typographic properties, it
+should be noticable because it brings the content to life and leaves the reader
+with the impression. It should do its job without getting in the way.
+Unfortunatily poor choices in typography \emph{will} hamper the message the
+content is trying to give.
+
+
+\pdfsample{2}{../gallery/fontsmatter.pdf}{It is important to choose fonts whose general stylistic features complement the content represented.}{fontsmatter2}
+
+Beyond the obvious effects of things such as decorative font faces, the subtly
+details matter too. The fine tuning that most people may not even notice or be
+able to articulate still make a difference in how they respond to content.
+People will be less inclined to actually read documnents that are hard to read.
+If you are going to the trouble to publish something the assumption is you want
+people to read it; so make it easy to read. This means make sensible, informed
+choices about font-face, spacing and layout.
+
+These choices are not always intuative. Sometimes less is more For example in
+figure~\vref{fig:fontsmatter1} the smaller font is actually easier for most
+peaple to read. Both parapraphs take up the same amount of space, but in the
+second parapraph the serifed font-face, propper kerning, word hyphenation and
+generous use of white space more than make up in any loss in readability caused
+by the slightly smaller font. On their own each change may only make a subtle
+difference, but combined the overall difference in readability is substantial.
+
+\pdfsample{1}{../gallery/fontsmatter.pdf}{The basic choices of font-face, size and spacing are
+			important, but even small details like kerning and hyphenation make a big
+			difference in readability.}{fontsmatter1}
+
+Good readability also makes for better astetics and more effective
+communication. The pupose of both the documents in figue~\vref{fig:tfl} is to convey
+the same set of information, but quicly scan your eye over each document and
+decide which one makes it easier to find who the relevant details. If you think
+example~\vref{fig:tflbefore} communicates more effectively than
+example~\vref{fig:tflafter}, please just put this document down and walk away.
+
+\pdfcompare{1}{../gallery/tfl_sample_pleading_before.pdf}{../gallery/tfl_sample_pleading_after.pdf}{The difference typography can make\cite{tflpleading}}{tfl}
 
 Special events shouldn't require starting from scratch with a totally new
 layout. Memorial services, weddings, seminars, etc should be easily adaptable
