@@ -116,7 +116,7 @@
 	\makeatother
 
 \title{Memoirs of a Bulletin}
-\subtitle{The Long Road to Typeset Liturgies Made Straight}
+\subtitle{The Voice of One Making Straight the Way for Well-Typeset Liturgies}
 \author{Caleb Maclennan}
 
 \begin{document}
@@ -129,54 +129,71 @@
 
 \begin{abstract}
 
-As long as today is called "today"\footnote{Hebrews 3:13}, Sunday will still
-come every Sunday~\dots~but typesetting the bulletin doesn't have to be a
-chore\footnote{Leviticus 23:3}, nor do the results have to be an eyesore. Even
-for non-graphically-inclined people like myself there are ways to make the
-process of producing well-typeset documents a relatively painless process.
+As long as today is still called ``today''\footnote{Hebrews 3:13}, Sunday will
+keep coming every Sunday~\dots~but typesetting the bulletin every week doesn't
+have to be a chore\footnote{Leviticus 23:3}---nor do the results have to be an
+eyesore! Even for people like myself who are not graphically inclined, there are
+ways to make the process of producing well-typeset documents a relatively
+painless process.
 
-While the resulting system is painless, discovering these techniques and
-applying them to the making of bulletins was not that easy for me. I write this
-article to document my own findings in hopes that it will make the same journey
-easier for any that would follow.
+While the \emph{resulting} system may be relatively painless to use, discovering
+these systems, learning the necessary techniques and applying them to the
+process of producing bulletins is not so easy the first time around. I write
+this article to document my own findings in hopes that it will make the same
+journey easier for any that would follow.
 
 \end{abstract}
 
 \section*{Prologue}
 \addcontentsline{toc}{section}{Prologue}
 
-For all his immense love of books, the pastor I work with doesn't really
-understand what properties transform text into effective communication. His
-version of 'typesetting' is to underline everything, then bold a few things that
-got lost in the lines.\footnote{To his credit he refrains from the
-	five-fonts-on-one-page routine, but I have seen five sizes.} We don't
-have a church secretary. That leaves me---a programmer not a
-designer---typesetting most of what we produce as a church. While this is less
-than ideal, I found there are tools that make the job easier.
+The pastor of my church has many great strengths. He has sound theology and,
+shall we say, an appreciation for both the Word in partucular and printed words
+in general. Yet for all his immense love of books, he does not really understand
+typography or the art of what transforms raw text into effective communication.
+His version of 'typesetting' is to underline everything, then bold a few
+important bits that got lost in the lines.\footnote{To his credit, I've seen
+	much worse. While his choice of formatting combinations isn't always
+	well advised, he does refrain from heinous crimes like using five
+	different typefaces on a single page.} Our church does not have the
+discinction of having a secretary.\footnote{Volunteers welcome! Brush up on your
+	Turkish and I'll put you to work.} That leaves me---a programmer not a
+designer---typesetting most of the material we produce. While this is less than
+ideal, I have found there are tools that make the work easier and keep me out of
+too much trouble.
 
 When I started down the road of typesetting our bulletins using \LaTeX, I was
 unable to find much helpful documentation out there. \LaTeX itself is
 extensively documented, but few of the examples available are applicable to the
 special needs of bulletins. The system excels at books and articles, but needs
-some extra love to produce smaller scale work with more formatting that content.
-I found a few others online doing roughly the same thing, but for fear of this
-reading like a hall of shame I will refrain from naming most of the
-names\footnote{One entry went so far as to align footers on each page by
-	inserting fixed-height boxes in the body after the page content that had
-	been carefully measured to push the remainder to roughly the bottom of
-	each page!}.  Most samples used booklet formatting that limited you to a
-pre-defined number of pages.\footnote{Having that special service where your
-	liturgy runs over a page shouldn't destroy your publishing process; nor
-	should you have to remember that pages 1, 2, 3, and 4 of your document
-	are actually 4, 1, 2, and 3 respectively when printed.}
+some extra love to produce smaller scale work with more formatting than content.
+I did find a few others online that had traveled the road before me. Some of
+these will be credited in this text, but others will rename nameless for fear of
+this reading like a hall of shame. Yes, some of them were that bad.\footnote{One
+	entry went so far as to align footers on each page by inserting empty
+	boxes in the body after the page content with hard coded heights that
+	had been carefully measured to push the remaining content to roughly the
+	bottom of each page!}. Most samples wanted te end up with a booklet
+format, but the way they arrived at the desired output was not semantic and
+cumbersome at best.\footnote{Having that special service where your liturgy runs
+	over your usual page length shouldn't destroy your publishing process;
+	nor should you have to remember that pages 1, 2, 3, and 4 of your
+	printed bulletin are actually saved in your source as 4, 1, 2, and 3
+	respectively.}
 
-The system I outline in the following pages will not work for all churches. In
-fact the contents, layout and usage of their bulletin is a tell: its bulletin
-will tell you a lot about the church because it reflects in large part their
-theology of worship. You will find a good deal of mine in the pages and some of
-the techniques will be more or less useful to you depending on your church's
-understanding of liturgy. I will make no apology for my own, how you adapt this
-is your business.
+In the following pages I will outline the methods I came up with and the lessons
+I learned. The system I came up with will not work for all churches. In many
+cases your needs may be simpler. Some of you may have more complex requirements.
+In one sense a church bulletin is nothing more than a priece of paper with a few
+words outlining a service to keep everybody on the same page. Yet it is a kind
+of `tell': the contents, layout and usage of a church's bulletin can tell you a
+lot about the church because it reflects in large part their theology of
+worship. You will find a good deal of my own theology in the following pages and
+some of the techniques will be more or less useful to you depending on your
+church's understanding of liturgy. I will make no apology for my own theology;
+how you adapt this is your business. I present my system not expecting it to be
+a drop in solution, but in the hopes that at least some of the pieces may be
+adaptable to other church's needs.
 
 \tableofcontents
 
