@@ -267,14 +267,28 @@ the popular kid on the block in this space today.
 \section{Where do I start?}
 
 \subsection{How do I install the tools?}
+\label{sec:install}
+
+See also installing git in section~\vref{sec:gitinstall}
+
+\subsubsection{TeX distributions}
 
 texlive, mactex, <windows>?
 
-texmaxer
+\subsubsection{TeX editors}
 
-lilypond
+gedit, texmaker, vim, emacs, notepad++, etc
 
-git
+\subsection{lilypond}
+
+\subsection{Picking a complier}
+\label{sec:compiler}
+
+\index{PdfTeX}\index{LuaTeX}\index{XeTeX}
+
+Should you use pdftex, luatex, xetex?
+
+Recommend luatex...
 
 \subsection{How do I make it do something?}
 
@@ -294,6 +308,10 @@ Github\footnote{\url{https://github.com/alerque/moab}}. You may browse and downl
 individually from there, but there is a better way.
 
 Clone the whole repo...
+
+Once you have a cloned copy of the repository, all the examples should be
+available in the ./examples folder. They may be compiledd using most any latex
+complier. See section~\vref{sec:compiler} for help picking one.
 
 Or if you would like to contribute your changes back to this project, start by
 using the "Fork" link at the top right of the Github page.
@@ -407,6 +425,11 @@ Distributed vs dumb.
 
 \subsection{GIT magic}
 \index{Git}
+
+\subsubsection{Installing Git}
+\label{sec:gitinstall}
+
+\subsubsection{Using git to organize bulletin files}
 
 In which the use of \texttt{git} is explained in relation to Bulletin
 management.
