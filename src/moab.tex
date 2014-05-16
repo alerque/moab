@@ -24,6 +24,8 @@
 	\usepackage{wrapfig}
 	\usepackage{graphicx}
 	\usepackage{fancybox}
+	\usepackage{caption}
+	\usepackage{subcaption}
 
 	\makeatletter
 
@@ -113,6 +115,42 @@
 
 	% So impressive can read our output
 	\pdfminorversion=4
+
+	\newcommand{\pdfsample}[4]{%
+		\begin{figure}[h]
+			\centering
+			\begin{minipage}[b]{.45\textwidth}
+				\raggedleft
+				\shadowbox{\includegraphics[page=#1,width=\textwidth]{#2}}
+			\end{minipage}\hspace{2\columnsep}
+			\begin{minipage}[b]{.45\textwidth}
+				\caption{#3}
+				\label{fig:#4}
+				\vspace{1ex}
+			\end{minipage}
+		\end{figure}
+	}
+
+	\newcommand{\pdfcompare}[5]{%
+		\begin{figure}[h]
+			\centering
+			\begin{subfigure}[b]{0.45\textwidth}
+				\shadowbox{\includegraphics[page=#1,width=\textwidth]{#2}}
+				\caption{Before}
+				\label{fig:#5before}
+			\end{subfigure}\quad%
+			\begin{subfigure}[b]{0.45\textwidth}
+				\shadowbox{\includegraphics[page=#1,width=\textwidth]{#3}}
+				\caption{After}
+				\label{fig:#5after}
+			\end{subfigure}
+			\caption{#4}
+			\label{fig:#5}
+		\end{figure}
+	}
+
+	\setcapindent*{0pt}
+
 	\makeatother
 
 \title{Memoirs of a Bulletin}
@@ -544,8 +582,12 @@ Some inspiring examples of well typeset bulletins!
 
 \begin{thebibliography}{99}
 	\bibitem{tex.se}
-	Tex Stack Exchange:\\
+	TeX Stack Exchange:\\
 	\url{http://tex.stackexchange.com}
+
+	\bibitem{tflpleading}Example from Typography for Lawyers\\
+	\url{http://typographyforlawyers.com}
+
 	\bibitem{backfill}
 	Thanks to Paul Stanley and his answer to my question:\\
 	\url{http://tex.stackexchange.com/q/174028/5100}
